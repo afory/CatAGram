@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Catagram
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <nav class="sidebar">
+            <a href="/">
+            <span role="img" aria-label="Titulo" title="Titulo">Catagram</span>
+            </a>
+            
+            <a href="/">
+            <span role="img" aria-label="Inicio" title="Inicio">🏠 Inicio</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Búsqueda" title="Búsqueda">🔎 Búsqueda</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Explorar" title="Explorar" >🆕 Explorar</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Reels" title="Reels">📽️ Reels</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Mensajes" title="Mensajes">📨 Mensajes</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Notificaciones" title="Notificaciones">🗞️ Notificaciones</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Crear" title="Crear">🎨 Crear</span>
+            </a>
+            <a href="/">
+            <span role="img" aria-label="Perfil" title="Perfil">🐈 Perfil</span>
+            </a>
+
+            
+            <a href="/">
+            <span role="img" aria-label="Más" title="Más">➕ Más</span>
+            </a>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

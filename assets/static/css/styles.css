@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #8b3030;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #262626;
+}
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 975px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #262626;
+    text-decoration: none;
+}
+
+.search-box {
+    background: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    width: 200px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-icons a {
+    color: #262626;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.feed {
+    width: 100%;
+    max-width: 614px;
+}
+
+.post {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+}
+
+.post-header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 14px;
+}
+
+.post-image {
+    width: 100%;
+    display: block;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 15px;
+}
+
+.post-actions i {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.post-likes, .post-caption, .post-comments {
+    padding: 0 14px 10px 14px;
+    font-size: 0.95rem;
+}
+
+.sidebar {
+    width: 320px;
+    margin-left: 40px;
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    .main-content {
+        justify-content: flex-start;
+    }
+    .sidebar {
+        display: block;
+    }
+}
+
+/* Botón estilo Instagram */
+.button {
+    background: #0095f6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.button:hover {
+    background: #1877f2;
+}
