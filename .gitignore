@@ -1,0 +1,51 @@
+# Venv
+.venv/
+venv/
+env/
+
+# Pyt
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite
+*.sqlite3
+db.sqlite3
+
+# Config
+*.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# Sys
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Tests
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Migrat
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# Whl,Dist
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Cache
+.cache/
+
