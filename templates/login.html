@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Catagram
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+<body>
+    <h1>Página de login</h1>
+    <p>Ingresar el logue aqui</p>
+    <p>Lugares "funcionales":</p>
+    <a href="/user/login"><p>Login</p></a> Login a cambiar por esta ruta actual...
+    <a href="/user/register"><p>Register</p></a>
+    <p>Cambio de 13/06/25, Al querer entrar a IG, se redirige a la página de Logueo, no hay vista previa de ig al parecer. Por lo que se cambiara estructura de algunas cosas.</p>
+</body>
+</body>
+</html>
