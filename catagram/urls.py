@@ -30,8 +30,8 @@ urlpatterns = [
     }),
     
     path('admin/', admin.site.urls),
-    path('', views.home),
+    path('', views.login),
     #path('acerca/', views.acerca),
     #path('posts/', include('posts.urls')),
-    #path('users/', include('users.urls'))
+    path('user/', include('user.urls'))
 ]
