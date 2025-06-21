@@ -17,7 +17,23 @@ body {
 main {
     margin-left: 220px;
     padding: 20px;
+    padding-bottom: 60px; /* Ajusta según la altura del footer */
 }
+
+/* Agrupa imagen y formulario en una fila */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Espacio entre imagen y formulario */
+    margin-top: 50px;
+}
+
+/* Ajusta el tamaño de la imagen */
+.login-image {
+    height: auto;
+}
+
 
 .sidebar {
     display: flex;
@@ -67,4 +83,30 @@ main {
 .form-with-validation input {
     padding: 0.25rem;
     max-width: 300px;
+}
+
+
+
+/*Footer styles*/
+.footer {
+    width: 100%;
+    color: rgb(168 168 168);
+    text-align: center;
+    font-size: smaller;
+    padding: 15px 0;
+    padding-bottom: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.footer a {
+    color: rgb(168 168 168);
+    text-decoration: none;
+    margin-right: 12px;
+}
+.footer a:last-child {
+    color: rgb(168 168 168);
+    margin-right: 0;
 }

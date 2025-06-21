@@ -22,6 +22,8 @@ from django.conf import settings
 from django.views.static import serve
 
 urlpatterns = [
+    #Cambiarlo mas tarde cuando termine de trabajar en el proyecto
+    # Serve media a static
     re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     }),
@@ -30,8 +32,7 @@ urlpatterns = [
     }),
     
     path('admin/', admin.site.urls),
-    path('', views.login),
-    #path('acerca/', views.acerca),
-    #path('posts/', include('posts.urls')),
-    path('user/', include('user.urls'))
+    path('', views.login_view, name='login'),
+    path('user/', include('user.urls')),
+    path('home/', include('home.urls')),
 ]

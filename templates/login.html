@@ -13,13 +13,46 @@
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
-<body>
-    <h1>Página de login</h1>
-    <p>Ingresar el logue aqui</p>
-    <p>Lugares "funcionales":</p>
-    <a href="/user/login"><p>Login</p></a> Login a cambiar por esta ruta actual...
-    <a href="/user/register"><p>Register</p></a>
-    <p>Cambio de 13/06/25, Al querer entrar a IG, se redirige a la página de Logueo, no hay vista previa de ig al parecer. Por lo que se cambiara estructura de algunas cosas.</p>
-</body>
+
+    <div class="login-container">
+        <img class="login-image" src="/media/Login_image.png" alt="Login photo">
+        <div>
+            <h1>Catagram imagen logo</h1>
+            <form class="form-with-validation" method="post">
+                {% csrf_token %}
+                {{ form }}
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% else %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}" />
+                {% endif %}
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                <button class="form-submit" >Entrar</button>
+            </form>
+            <div>
+                <p>O</p>
+                <a>Inicia sesión con Catnip</a>
+                <p>¿Haz olvidado tu zona marcada?</p>
+                <p>¿No tienes una zona? <a href="#">Márcala</a></p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <a href="#">Cats</a>
+        <a href="#">Información</a>
+        <a href="#">API</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Condiciones</a>
+        <a href="#">Catagram Lite Pronto</a>
+        <a href="#">Cat Verified</a>
+        <p></p>
+        <a>Gato(Gatolandia)</a>
+        <a>&copy; 2025 Catagram from Cat</a>
+    </footer>
+
 </body>
 </html>
