@@ -10,7 +10,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return redirect('')
+                return redirect('home:inicio')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', { "form": form })

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render
 
 def inicio_view(request):
-    return redirect('home:inicio')
+    return render(request, 'home/inicio.html') 

@@ -4,20 +4,37 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+}
+
 body {
     background: rgb(0, 1, 0);
+    min-height: 100vh;
+    display: flex;
     font-family: 'Segoe UI',Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: rgb(245, 245, 245);
     font-size: 14px;
     line-height: 18px;
+    flex-direction: column;
 }
 
 main {
     margin-left: 220px;
+    flex: 1;
     padding: 20px;
-    padding-bottom: 60px; /* Ajusta según la altura del footer */
+    padding-bottom: 60px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main-login {
+    margin-left: 0 !important;
 }
 
 /* Agrupa imagen y formulario en una fila */
@@ -25,13 +42,200 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px; /* Espacio entre imagen y formulario */
+    gap: 40px;
     margin-top: 50px;
+    width: 100vw;
+    max-width: 100vw;
+    min-height: 70vh;
+    box-sizing: border-box;
+}
+
+.login-container > img.login-image {
+    max-width: 400px;
+    width: 35vw;
+    min-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.login-container > div {
+    max-width: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Formulario */
+.form-group {
+    position: relative;
+    margin-bottom: 22px;
+    width: 270px;
+    max-width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 12px 14px 12px;
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: #0095f6;
+}
+
+.form-label {
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    color: #aaa;
+    font-size: 1rem;
+    pointer-events: none;
+    background: transparent;
+    transition: 0.2s;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -10px;
+    left: 8px;
+    font-size: 0.85rem;
+    color: #0095f6;
+    background: #222;
+    padding: 0 4px;
+}
+
+/*Contraseña del formulario*/
+.password-group {
+    position: relative;
+}
+
+/*Para ver la contraseña cuando se ingresa algo*/
+.show-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(255, 255, 255);
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    display: none;
+}
+
+.password-group input:not(:placeholder-shown) ~ .show-password {
+    display: inline;
 }
 
 /* Ajusta el tamaño de la imagen */
 .login-image {
     height: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.login-image-logo {
+    margin:auto;
+    height: 51px;
+    width: 175px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+}
+
+/* Centra el contenido de login-info */
+.login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Centrar todo respecto al logo */
+.login-image-logo, .login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.login-info a {
+    text-decoration: none;
+}
+
+.login-info p {
+    font-weight: normal;
+    margin: 8px 0 0 0;
+}
+
+.login-info p a {
+    font-weight: bold; 
+    color: #0095f6;
+    text-decoration: none;
+}
+
+/* Estilos del formulario de inicio de sesión */
+.form-submit-button {
+    margin:auto;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(0, 149, 246);
+    height: 32px;
+    width: 270px;
+    border-radius: 8px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón Catnip azul */
+.login-catnip {
+    color: #0095f6;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+/* Línea O debajo de el login*/
+.login-divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 270px;
+    margin: 16px 0;
+}
+
+.login-divider span {
+    flex: 1;
+    height: 1px;
+    background: #a8a8a8;
+    opacity: 0.5;
+    display: block;
+}
+
+.login-divider .login-o {
+    flex: 0 0 auto;
+    margin: 0 12px;
+    font-weight: normal;
+    color: #a8a8a8;
+    background: transparent;
+    line-height: 1;
+    font-size: 16px;
+}
+
+/* Olvidaste tu zona: blanco, bold, sin subrayado */
+.login-forgot {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 
@@ -65,13 +269,14 @@ main {
     background: #fafafa;
 }
 
-.form-with-validation {
-    max-width: 600px;
-    font-size: 1rem;
-    padding: 1rem;
+.form-with-validation,
+form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
     display: flex;
-    flex-flow: column;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-with-validation div {
@@ -93,12 +298,8 @@ main {
     color: rgb(168 168 168);
     text-align: center;
     font-size: smaller;
-    padding: 15px 0;
-    padding-bottom: 50px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
+    padding: 15px 0 10px 0;
+    background: rgb(0,0,1);
 }
 
 .footer a {
@@ -109,4 +310,92 @@ main {
 .footer a:last-child {
     color: rgb(168 168 168);
     margin-right: 0;
+}
+
+/*Responsive intento*/
+@media (max-width: 900px) {
+    .sidebar {
+        width: 60px;
+        padding-top: 10px;
+        font-size: 0.9rem;
+    }
+    .sidebar a {
+        padding: 10px 8px;
+        font-size: 1rem;
+        justify-content: center;
+    }
+    main {
+        margin-left: 60px;
+    }
+    .login-container {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .login-image {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-image {
+        display: none;
+        max-width: 100%;
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        flex-direction: row;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid #dbdbdb;
+        z-index: 200;
+        padding: 0;
+        overflow-x: auto;
+    }
+    .sidebar a {
+        flex: 1;
+        justify-content: center;
+        padding: 0 8px;
+        font-size: 1.1rem;
+        border: none;
+    }
+    main {
+        margin-left: 0;
+        margin-top: 60px;
+        padding: 10px;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+    .login-container {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .login-image {
+        width: 90vw;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .login-image-logo {
+        width: 70vw;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .form-group {
+        width: 90vw;
+        max-width: 100%;
+    }
+    .form-submit-button {
+        width: 90vw;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    .footer {
+        font-size: 0.8rem;
+        padding: 10px 0 40px 0;
+    }
 }
