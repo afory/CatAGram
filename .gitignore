@@ -1,33 +1,33 @@
-# Venv
+# Entornos Virtuales
 .venv/
 venv/
 env/
 
-# Pyt
+# Archivos de Python generados
 __pycache__/
 *.py[cod]
 *$py.class
 
-# SQLite
+# Base de datos local
 *.sqlite3
 db.sqlite3
 
-# Config
+# Archivos de configuración y secretos (¡Muy importante!)
 *.env
 .env.*
 
-# Editor
+# Configuraciones de editores
 .vscode/
 .idea/
 
-# Sys
+# Archivos de sistema operativo
 .DS_Store
 Thumbs.db
 
-# Logs
+# Archivos de Logs
 *.log
 
-# Tests
+# Archivos de Tests y Cobertura
 htmlcov/
 .coverage
 .tox/
@@ -36,16 +36,25 @@ coverage.xml
 *.cover
 .pytest_cache/
 
-# Migrat
+# Caché de migraciones
 **/migrations/__pycache__/
 **/migrations/*.pyc
 
-# Whl,Dist
+# Archivos de empaquetado de Python
 *.egg-info/
 dist/
 build/
 *.egg
 
-# Cache
+# Caché general
 .cache/
 
+# Carpeta generada por el comando `collectstatic`. NUNCA debe estar en el repo.
+staticfiles/
+
+media/*
+
+!media/Catagram_logo.png
+!media/login_image.png
+
+!media/.gitkeep
