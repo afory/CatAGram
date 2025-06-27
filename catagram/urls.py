@@ -15,23 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, include
 from . import views
-from django.conf.urls.static import static
+
+# Importaciones para servir archivos estáticos y de medios en DESARROLLO
 from django.conf import settings
-from django.views.static import serve
+from django.conf.urls.static import static
 
 urlpatterns = [
-    #Cambiarlo mas tarde cuando termine de trabajar en el proyecto
-    # Serve media a static
-    re_path(r'^media/(?P<path>.*)$', serve, {
-        'document_root': settings.MEDIA_ROOT,
-    }),
-    re_path(r'^static/(?P<path>.*)$', serve, {
-        'document_root': settings.STATIC_ROOT,
-    }),
-    
     path('admin/', admin.site.urls),
     path('', views.login_view, name='login'),
     path('home/', include('home.urls')),
+
+    # Añadir otras URLs de aplicación SI CREAS UNO NUEVO!
 ]
+
+if settings.DEBUG:
+    # Añade las URLs para los archivos de medios (subidas de usuarios)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kawaii Skeleton Cat Cup
+* source:	https://sketchfab.com/3d-models/kawaii-skeleton-cat-cup-c286ac7a17ac401d80880e120b7e9acb
+* author:	AnixMoonLight (https://sketchfab.com/ani111)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kawaii Skeleton Cat Cup" (https://sketchfab.com/3d-models/kawaii-skeleton-cat-cup-c286ac7a17ac401d80880e120b7e9acb) by AnixMoonLight (https://sketchfab.com/ani111) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -4,6 +4,51 @@
     box-sizing: border-box;
 }
 
+#container3D {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background: transparent;
+    position: relative;
+}
+
+/* Contenedor en la página de login */
+#container3D-login {
+    width: 100%;
+    max-width: 275px; 
+    height: 200px;    /* Altura explícita para ser visible */
+    margin: 0 auto 0 auto; 
+    display: block;
+    background: transparent; /* solo para pruebas */
+    position: relative; /* Para que el spinner se posicione correctamente */
+}
+
+/* Estilos para el spinner de carga */
+.loading-spinner {
+    /* Posición en el centro del contenedor */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado exacto */
+    z-index: 10;
+
+    /* Apariencia del spinner */
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2); /* Borde semi transparente */
+    border-radius: 50%;
+    border-top-color: #ffffff; /* Color del coso que gira */
+
+    /* Animación */
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 html, body {
     overflow-x: hidden;
     width: 100%;

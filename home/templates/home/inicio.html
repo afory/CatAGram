@@ -1,9 +1,38 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}
-   Catagram
+    Catagram
 {% endblock %}
 
 {% block content %}
-    <h1>Felicidades, iniciaste sesión.</h1>
+    <div id="container3D">
+        <div class="loading-spinner"></div>
+    </div>
+{% endblock %}
+
+{% block extra_scripts %}
+    <!-- Modelo 3D de login -->
+    <script type="module">
+        import Viewer3D from "{% static 'js/main.js' %}";
+        
+        const modelUrl = "{% static 'models/gato/scene.gltf' %}";
+
+        // Define la configuración para esta vista
+        const loginConfig = {
+            initialZoom: 6.5, // Un valor más pequeño para estar más cerca
+            initialRotation: { y: -1.5 } // Rotacion del modelo, para que mire de frente
+        };
+
+        // Crea la instancia pasándole la configuración
+        new Viewer3D('container3D', modelUrl, loginConfig);
+    </script>
+    <!-- 
+    initialZoom: Un número más pequeño acerca la cámara, un número más grande la aleja.
+    initialRotation: Los valores se miden en radianes.
+    y: -1.5 -> Mira de frente.
+    y: Math.PI -> Mira hacia atrás (180 grados).
+    y: Math.PI / 2 -> Mira hacia la derecha (90 grados).
+    y: -Math.PI / 2 -> Mira hacia la izquierda (-90 grados).
+    -->
 {% endblock %}

@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %}
-            Catagram
-        {% endblock %}
-    </title>
+    <title>Catagram - Login</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
     <main class="main-login">
         <div class="login-container">
             <img class="login-image" src="/media/Login_image.png" alt="Login photo">
             <div>
+                <!-- El contenedor para el modelo 3D -->
+                <div id="container3D-login">
+                    <div class="loading-spinner"></div>
+                </div>
+
                 <img class="login-image-logo" src="/media/Catagram_logo.png" alt="Login image logo">
                 <form method="post" autocomplete="off">
                     {% csrf_token %}
+                    <!-- ... Tu formulario de login no cambia ... -->
                     <div class="form-group">
                         <input type="text" name="username" id="id_username" class="form-input" required autocomplete="username"
                             placeholder=" " value="{{ form.username.value|default_if_none:'' }}">
@@ -38,16 +39,11 @@
                     {% endif %}
                     <button class="form-submit-button">Entrar</button>
                 </form>
+                <!-- ... El resto de tu sección de login no cambia ... -->
                 <div class="login-info">
-                    <div class="login-divider">
-                        <span></span>
-                        <span class="login-o">O</span>
-                        <span></span>
-                    </div>
+                    <div class="login-divider"><span></span><span class="login-o">O</span><span></span></div>
                     <a href="#" class="login-catnip">Inicia sesión con Catbook</a>
-                    <p>
-                        <a href="#" class="login-forgot">¿Haz olvidado tu contraseña?</a>
-                    </p>
+                    <p><a href="#" class="login-forgot">¿Haz olvidado tu contraseña?</a></p>
                     <p>¿No tienes una zona? <a href="#">Márcala</a></p>
                 </div>
             </div>
@@ -64,6 +60,48 @@
         <p></p>
         <a>Gato(Gatolandia)</a>
         <a>&copy; 2025 Catagram from Cat</a>
+        <p></p>
+        <div><a href="https://sketchfab.com/3d-models/kawaii-skeleton-cat-cup-c286ac7a17ac401d80880e120b7e9acb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+            Kawaii Skeleton Cat Cup </a> by <a href="https://sketchfab.com/ani111?utm_medium=embed&utm_campaign=share-popup&utm_content=c286ac7a17ac401d80880e120b7e9acb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> AnixMoonLight </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=c286ac7a17ac401d80880e120b7e9acb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
     </footer>
+
+    <!-- Script local para la página (mostrar/ocultar contraseña) -->
+    <script>
+        function mostrarContra() {
+            const contraEntrada = document.getElementById('id_password');
+            const showContra = document.querySelector('.show-password');
+            if (contraEntrada.type === "password") {
+                contraEntrada.type = "text";
+                showContra.textContent = "Ocultar";
+            } else {
+                contraEntrada.type = "password";
+                showContra.textContent = "Mostrar";
+            }
+        }
+    </script>
+
+    <!-- Modelo 3D de login -->
+    <script type="module">
+        import Viewer3D from "{% static 'js/main.js' %}";
+        
+        const modelUrl = "{% static 'models/gato/scene.gltf' %}";
+
+        // Define la configuración para esta vista
+        const loginConfig = {
+            initialZoom: 6.5, // Un valor más pequeño para estar más cerca
+            initialRotation: { y: -1.5 } // Rotacion del modelo, para que mire de frente
+        };
+
+        // Crea la instancia pasándole la configuración
+        new Viewer3D('container3D-login', modelUrl, loginConfig);
+    </script>
+    <!-- 
+    initialZoom: Un número más pequeño acerca la cámara, un número más grande la aleja.
+    initialRotation: Los valores se miden en radianes.
+    y: 0 -> Mira de frente.
+    y: Math.PI -> Mira hacia atrás (180 grados).
+    y: Math.PI / 2 -> Mira hacia la derecha (90 grados).
+    y: -Math.PI / 2 -> Mira hacia la izquierda (-90 grados).
+    -->
 </body>
 </html>
