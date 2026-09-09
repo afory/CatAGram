@@ -56,7 +56,7 @@ export default class Viewer3D {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
         
-        // --- NUEVO: Ocultar el canvas al principio ---
+        // --- Ocultar el canvas al principio ---
         this.renderer.domElement.style.opacity = 0;
         this.renderer.domElement.style.transition = 'opacity .5s';
         
@@ -80,7 +80,7 @@ export default class Viewer3D {
     }
 
     loadModel() {
-        // --- NUEVO: Pasar el manager al loader ---
+        // --- Pasar el manager al loader ---
         const loader = new GLTFLoader(this.loadingManager); 
         loader.load(
             this.modelUrl,
@@ -101,7 +101,7 @@ export default class Viewer3D {
                 this.scene.add(object);
             },
             undefined,
-            (error) => { /* El onError del manager ya lo maneja */ }
+            (error) => { /* El onError, el manager ya lo maneja */ }
         );
     }
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catagram - Registro</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <main class="main-auth">
+        <div class="auth-container">
+            <img class="auth-image" src="/media/register_image.png" alt="Register photo">
+
+            <div class="auth-column">
+                <img class="auth-image-logo" src="/media/Catagram_logo.png" alt="Login image logo">
+
+                <form method="post" class="auth-form" autocomplete="off">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" name="paw_id" id="id_paw_id" class="form-input" required placeholder=" " value="{{ form.paw_id.value|default_if_none:'' }}">
+                        <label for="id_paw_id" class="form-label">Huella ID</label>
+                        {% if form.paw_id.errors %}
+                            <span class="field-error">{{ form.paw_id.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group password-group">
+                        <input type="password" name="password1" id="id_password1" class="form-input" required placeholder=" ">
+                        <label for="id_password1" class="form-label">Contraseña</label>
+                        <span class="show-password" onclick="togglePassword('id_password1', this)">Mostrar</span>
+                    </div>
+
+                    <div class="form-group password-group">
+                        <input type="password" name="password2" id="id_password2" class="form-input" required placeholder=" ">
+                        <label for="id_password2" class="form-label">Confirmar contraseña</label>
+                        <span class="show-password" onclick="togglePassword('id_password2', this)">Mostrar</span>
+                        {% if form.password2.errors %}
+                            <span class="field-error">{{ form.password2.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="name" id="id_name" class="form-input" required placeholder=" " value="{{ form.name.value|default_if_none:'' }}">
+                        <label for="id_name" class="form-label">Nombre</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="username" id="id_username" class="form-input" required placeholder=" " value="{{ form.username.value|default_if_none:'' }}">
+                        <label for="id_username" class="form-label">Nombre de usuario</label>
+                        {% if form.username.errors %}
+                            <span class="field-error">{{ form.username.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="auth-submit">Crear usuario</button>
+                </form>
+
+                <div class="auth-info">
+                    <div class="auth-divider"><span></span><span class="auth-o">O</span><span></span></div>
+                    <p>¿Ya tienes cuenta? <a href="{% url 'accounts:login' %}">Inicia sesión</a></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <a href="#">Meta</a>
+        <a href="#">Información</a>
+        <a href="#">Blog</a>
+        <a href="#">Empleo</a>
+        <a href="#">Ayuda</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Condiciones</a>
+        <a href="#">Ubicaciones</a>
+        <a href="#">Instagram Lite</a>
+        <a href="#">Importación de contactos</a>
+        <a href="#">Meta Verified</a>
+        <p>© 2026 Catagram</p>
+    </footer>
+
+    <script>
+        function togglePassword(inputId, element) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            if (input.type === 'password') {
+                input.type = 'text';
+                element.textContent = 'Ocultar';
+            } else {
+                input.type = 'password';
+                element.textContent = 'Mostrar';
+            }
+        }
+    </script>
+</body>
+</html>

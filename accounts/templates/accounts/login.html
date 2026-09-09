@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catagram - Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main class="main-login">
+        <div class="login-container">
+            <img class="login-image" src="/media/Login_image.png" alt="Login photo">
+            <div>
+                <div id="container3D-login">
+                    <div class="loading-spinner"></div>
+                </div>
+
+                <img class="login-image-logo" src="/media/Catagram_logo.png" alt="Login image logo">
+
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="username" id="id_username" class="form-input" required autocomplete="username"
+                               placeholder=" " value="{{ form.username.value|default_if_none:'' }}">
+                        <label for="id_username" class="form-label">Huella, nombre o CAT-ID.</label>
+                    </div>
+
+                    <div class="form-group password-group">
+                        <input type="password" name="password" id="id_password" class="form-input" required autocomplete="current-password"
+                               placeholder=" ">
+                        <label for="id_password" class="form-label">Contraseña</label>
+                        <span class="show-password" onclick="mostrarContra()">Mostrar</span>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                        <div class="form-errors">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    <button class="form-submit-button" type="submit">Entrar</button>
+                </form>
+
+                <div class="login-info">
+                    <div class="login-divider"><span></span><span class="login-o">O</span><span></span></div>
+                    <a href="{% url 'accounts:register' %}" class="login-catnip">Crear una cuenta de Catagrom</a>
+                    <p><a href="#" class="login-forgot">¿Haz olvidado tu contraseña?</a></p>
+                    <p>¿No tienes una zona? <a href="{% url 'accounts:register' %}">Márcala</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a href="#">Cats</a>
+        <a href="#">Información</a>
+        <a href="#">API</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Condiciones</a>
+        <a href="#">Catagram Lite Pronto</a>
+        <a href="#">Cat Verified</a>
+        <p></p>
+        <a>Gato(Gatolandia)</a>
+        <a>&copy; 2025 Catagram from Cat</a>
+    </footer>
+
+    <script>
+        function mostrarContra() {
+            const contraEntrada = document.getElementById('id_password');
+            const showContra = document.querySelector('.show-password');
+            if (contraEntrada.type === 'password') {
+                contraEntrada.type = 'text';
+                showContra.textContent = 'Ocultar';
+            } else {
+                contraEntrada.type = 'password';
+                showContra.textContent = 'Mostrar';
+            }
+        }
+    </script>
+
+    <script type="module">
+        import Viewer3D from "{% static 'js/main.js' %}";
+        const modelUrl = "{% static 'models/gato/scene.gltf' %}";
+        const loginConfig = {
+            initialZoom: 6.5,
+            initialRotation: { y: -1.5 }
+        };
+        new Viewer3D('container3D-login', modelUrl, loginConfig);
+    </script>
+</body>
+</html>

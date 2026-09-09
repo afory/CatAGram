@@ -11,21 +11,30 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Carga variables de entorno desde un archivo .env en la raíz del proyecto (si existe)
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pe5x-jr%3o7=k^mk=c$z$w35=g9&gwdb*xav0dt(k-c-y7yeva'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+if not SECRET_KEY:
+    raise ImproperlyConfigured(
+        'La variable DJANGO_SECRET_KEY no está definida. Crea tu archivo .env en la raíz del proyecto para generarla, valga la rebundancia.'
+    )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-AALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -37,8 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'home',
 ]
+
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'home:inicio'
+LOGOUT_REDIRECT_URL = 'accounts:login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +69,7 @@ ROOT_URLCONF = 'catagram.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -335,9 +335,134 @@ form {
     max-width: 300px;
 }
 
+/*Auth styles*/
 
+.auth-page {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #010203;
+    padding: 32px 16px;
+}
+
+.auth-panel {
+    width: min(100%, 420px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-header {
+    text-align: left;
+}
+
+.auth-header h1 {
+    color: #f5f5f5;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.04em;
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-field {
+    position: relative;
+    width: 100%;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 18px 14px 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #a8a8a8;
+    border-radius: 8px;
+    color: #f5f5f5;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input:focus {
+    border-color: #0095f6;
+    box-shadow: 0 0 0 1px rgba(0, 149, 246, 0.35);
+}
+
+.auth-label {
+    position: absolute;
+    left: 14px;
+    top: 13px;
+    color: #aaa;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.auth-input:focus + .auth-label,
+.auth-input:not(:placeholder-shown) + .auth-label {
+    top: -9px;
+    left: 10px;
+    font-size: 0.75rem;
+    color: #0095f6;
+    background: #010203;
+    padding: 0 6px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.auth-submit {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #0095f6;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.auth-submit:hover {
+    background: #0087d6;
+}
 
 /*Footer styles*/
+
+.auth-footer-link {
+    text-align: center;
+    margin-top: 4px;
+    color: #d8d8d8;
+}
+
+.auth-footer-link a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-errors {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
 .footer {
     width: 100%;
     color: rgb(168 168 168);

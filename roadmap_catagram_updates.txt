@@ -1,0 +1,10 @@
+﻿09/09/2029 - Se corrigió la configuración base de Django y se preparó la carga de secretos desde un archivo .env.
+09/09/2029 - Se corrigió el error de ALLOWED_HOSTS y se dejó la configuración del proyecto más estable para desarrollo local.
+09/09/2029 - Se reorganizó la autenticación en la app accounts para separar login, register y logout del layout principal.
+09/09/2029 - Se mejoró la estructura del proyecto para que el home y las páginas principales queden separadas de la autenticación.
+09/09/2029 - Se creó un sistema de registro personalizado con Huella ID, nombre de usuario, nombre y contraseñas.
+09/09/2029 - Se eliminó la lógica de errores redundantes y se mejoró el diseño del formulario para que parezca más a Instagram.
+09/09/2029 - Se separó el CSS de autenticación del CSS global y se ajustó la vista de login/register para que mantenga una misma identidad visual.
+09/09/2029 - Se creó la base del modelo de perfil del usuario con relación 1:1 hacia User y campos como paw_id, name y preparación para avatar/bio.
+09/09/2029 - Se añadió Pillow para soportar ImageField y se validó el proyecto con python manage.py check.
+09/09/2029 - Se dejó la base lista para seguir con posts, feed, historias, perfil y reels.

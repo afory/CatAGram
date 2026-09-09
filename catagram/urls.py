@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
 
 # Importaciones para servir archivos estáticos y de medios en DESARROLLO
 from django.conf import settings
@@ -24,11 +23,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.login_view, name='login'),
+    path('', include('accounts.urls')),
     path('home/', include('home.urls')),
-
-    # Añadir otras URLs de aplicación SI CREAS UNO NUEVO!
 ]
+
 
 if settings.DEBUG:
     # Añade las URLs para los archivos de medios (subidas de usuarios)
