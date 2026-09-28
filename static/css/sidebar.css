@@ -1,0 +1,147 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    width: 220px;
+    height: 100vh;
+    background: rgb(0,0,1);
+    border-right: 1px solid #dbdbdb;
+    padding: 20px 12px 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 6px 0 8px;
+}
+
+.sidebar-logo {
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+}
+
+.sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-item.active {
+    font-weight: 600;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    font-size: 1.35rem;
+}
+
+.nav-text {
+    font-size: 1.02rem;
+    line-height: 1.2;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 72px;
+        padding-inline: 8px;
+    }
+
+    .sidebar-brand {
+        padding-top: 0;
+    }
+
+    .sidebar-logo {
+        width: 100px;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 10px 8px;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    .main-app {
+        margin-left: 72px;
+    }
+}
+
+@media (max-width: 760px) {
+    .sidebar {
+        width: 100%;
+        height: 56px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        border-right: none;
+        border-bottom: 1px solid #dbdbdb;
+        padding: 0 8px;
+        overflow-x: auto;
+    }
+
+    .sidebar-brand {
+        display: none;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        width: auto;
+        min-width: max-content;
+    }
+
+    .nav-item {
+        padding: 10px 12px;
+        justify-content: center;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    .sidebar-footer {
+        margin-top: 0;
+        width: auto;
+    }
+
+    .main-app {
+        margin-left: 0;
+        margin-top: 56px;
+    }
+}

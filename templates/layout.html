@@ -10,44 +10,73 @@
             {% endblock %}
         </title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
     <body>
-        <nav class="sidebar">
-                <a href="/">
-                <img class="login-image-logo" src="/media/Catagram_logo.png" alt="Login image logo">
-                </a>
-                
-                <a href="/">
-                <span role="img" aria-label="Inicio" title="Inicio">🏠 Inicio</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Búsqueda" title="Búsqueda">🔎 Búsqueda</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Explorar" title="Explorar" >🆕 Explorar</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Reels" title="Reels">📽️ Reels</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Mensajes" title="Mensajes">📨 Mensajes</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Notificaciones" title="Notificaciones">🗞️ Notificaciones</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Crear" title="Crear">🎨 Crear</span>
-                </a>
-                <a href="/">
-                <span role="img" aria-label="Perfil" title="Perfil">🐈 Perfil</span>
-                </a>
+        {% if user.is_authenticated %}
+            <nav class="sidebar" aria-label="Sidebar principal">
+                <div class="sidebar-brand">
+                    <a href="{% url 'home:inicio' %}" aria-label="Inicio de Catagram">
+                        <img class="sidebar-logo" src="/media/Catagram_logo.png" alt="Catagram logo">
+                    </a>
+                </div>
 
-                
-                <a href="/">
-                <span role="img" aria-label="Más" title="Más">➕ Más</span>
-                </a>
-        </nav>
-        <main>
+                <ul class="sidebar-nav" aria-label="Menú principal">
+                    <li>
+                        <a href="{% url 'home:inicio' %}" class="nav-item active" aria-current="page">
+                            <span class="nav-icon" aria-hidden="true">🏠</span>
+                            <span class="nav-text">Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">🔎</span>
+                            <span class="nav-text">Búsqueda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">📽️</span>
+                            <span class="nav-text">Reels</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">💬</span>
+                            <span class="nav-text">Mensajes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">🔔</span>
+                            <span class="nav-text">Notificaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">＋</span>
+                            <span class="nav-text">Crear</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <span class="nav-icon" aria-hidden="true">🐈</span>
+                            <span class="nav-text">Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <a href="#" class="nav-item nav-item--secondary">
+                        <span class="nav-icon" aria-hidden="true">⋯</span>
+                        <span class="nav-text">Más</span>
+                    </a>
+                </div>
+            </nav>
+        {% endif %}
+
+        <main class="{% if user.is_authenticated %}main-app{% else %}main-auth{% endif %}">
             {% block content %}
             {% endblock %}
         </main>

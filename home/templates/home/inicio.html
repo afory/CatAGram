@@ -6,33 +6,114 @@
 {% endblock %}
 
 {% block content %}
-    <div id="container3D">
-        <div class="loading-spinner"></div>
+    {% load static %}
+    <div class="feed-shell">
+        <section class="stories-bar" aria-label="Historias de Catagram">
+            <div class="story-item">
+                <div class="story-avatar story-avatar--pink">🐾</div>
+                <span>Tu historia</span>
+            </div>
+            <div class="story-item">
+                <div class="story-avatar story-avatar--gold">🐈</div>
+                <span>Whiskers</span>
+            </div>
+            <div class="story-item">
+                <div class="story-avatar story-avatar--blue">😺</div>
+                <span>Moon</span>
+            </div>
+            <div class="story-item">
+                <div class="story-avatar story-avatar--purple">🐱</div>
+                <span>Luna</span>
+            </div>
+            <div class="story-item">
+                <div class="story-avatar story-avatar--green">🦊</div>
+                <span>Pip</span>
+            </div>
+            <div class="story-item">
+                <div class="story-avatar story-avatar--orange">🐾</div>
+                <span>Gizmo</span>
+            </div>
+        </section>
+
+        <article class="post-card" aria-label="Publicación destacada">
+            <header class="post-header">
+                <div class="post-author">
+                    <div class="post-avatar">🐈</div>
+                    <div>
+                        <strong>whiskers_cats</strong>
+                        <small>Gatitos del barrio</small>
+                    </div>
+                </div>
+                <button class="post-menu" aria-label="Más opciones">⋯</button>
+            </header>
+
+            <div class="post-image post-image--cat01">
+                <img
+                    src="{% static 'images/cat-post-1.jpg' %}"
+                    alt="Foto de un gato"
+                >
+                <div class="post-overlay">
+                    <span>🐱</span>
+                </div>
+            </div>
+
+            <div class="post-actions">
+                <div class="post-actions-left">
+                    <button aria-label="Me gusta">♥</button>
+                    <button aria-label="Comentar">💬</button>
+                    <button aria-label="Compartir">✈</button>
+                </div>
+                <button aria-label="Guardar">🔖</button>
+            </div>
+
+            <div class="post-body">
+                <p><strong>whiskers_cats</strong> Un día tranquilo, una siesta perfecta y un poco de caos en la alfombra. #Catagram #GatoDormilón</p>
+                <div class="post-comments">
+                    <span>Ver los 12 comentarios</span>
+                </div>
+                <div class="comment-inline">
+                    <span><strong>miau_miau</strong> ¡Qué ternura!</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="post-card" aria-label="Segunda publicación">
+            <header class="post-header">
+                <div class="post-author">
+                    <div class="post-avatar post-avatar--alt">🐾</div>
+                    <div>
+                        <strong>catlover_daily</strong>
+                        <small>Rincón felino</small>
+                    </div>
+                </div>
+                <button class="post-menu" aria-label="Más opciones">⋯</button>
+            </header>
+
+            <div class="post-image post-image--cat02" aria-label="Foto de gato en ventana">
+                <img
+                    src="{% static 'images/cat-post-2.jpg' %}"
+                    alt="Foto de un gato"
+                >
+                <div class="post-overlay">
+                    <span>🌙</span>
+                </div>
+            </div>
+
+            <div class="post-actions">
+                <div class="post-actions-left">
+                    <button aria-label="Me gusta">♥</button>
+                    <button aria-label="Comentar">💬</button>
+                    <button aria-label="Compartir">✈</button>
+                </div>
+                <button aria-label="Guardar">🔖</button>
+            </div>
+
+            <div class="post-body">
+                <p><strong>catlover_daily</strong> Ventana, sol, pelaje y actitud. El equilibrio perfecto. #GatoSoñador #Catagram</p>
+                <div class="post-comments">
+                    <span>Ver los 8 comentarios</span>
+                </div>
+            </div>
+        </article>
     </div>
-{% endblock %}
-
-{% block extra_scripts %}
-    <!-- Modelo 3D de login -->
-    <script type="module">
-        import Viewer3D from "{% static 'js/main.js' %}";
-        
-        const modelUrl = "{% static 'models/gato/scene.gltf' %}";
-
-        // Define la configuración para esta vista
-        const loginConfig = {
-            initialZoom: 6.5, // Un valor más pequeño para estar más cerca
-            initialRotation: { y: -1.5 } // Rotacion del modelo, para que mire de frente
-        };
-
-        // Crea la instancia pasándole la configuración
-        new Viewer3D('container3D', modelUrl, loginConfig);
-    </script>
-    <!-- 
-    initialZoom: Un número más pequeño acerca la cámara, un número más grande la aleja.
-    initialRotation: Los valores se miden en radianes.
-    y: -1.5 -> Mira de frente.
-    y: Math.PI -> Mira hacia atrás (180 grados).
-    y: Math.PI / 2 -> Mira hacia la derecha (90 grados).
-    y: -Math.PI / 2 -> Mira hacia la izquierda (-90 grados).
-    -->
 {% endblock %}
