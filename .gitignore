@@ -12,7 +12,7 @@ __pycache__/
 *.sqlite3
 db.sqlite3
 
-# Archivos de configuración y secretos (¡Muy importante!)
+# Archivos de configuración y secretos (Donde guardo mi key secreta/secret KEY)
 .env
 .env.*
 !.env.example
@@ -50,7 +50,6 @@ build/
 # Caché general
 .cache/
 
-# Carpeta generada por el comando `collectstatic`. NUNCA debe estar en el repo.
 staticfiles/
 
 media/*

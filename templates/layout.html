@@ -9,6 +9,7 @@
                 Catagram
             {% endblock %}
         </title>
+        <link rel="icon" type="image/png" href="{% static 'images/Catagram C - logo.png' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -18,7 +19,8 @@
             <nav class="sidebar" aria-label="Sidebar principal">
                 <div class="sidebar-brand">
                     <a href="{% url 'home:inicio' %}" aria-label="Inicio de Catagram">
-                        <img class="sidebar-logo" src="/media/Catagram_logo.png" alt="Catagram logo">
+                        <img class="sidebar-logo sidebar-logo--compact" src="{% static 'images/Catagram C - logo.png' %}" alt="">
+                        <img class="sidebar-logo sidebar-logo--wordmark" src="/media/Catagram_logo.png" alt="">
                     </a>
                 </div>
 
@@ -68,11 +70,15 @@
                 </ul>
 
                 <div class="sidebar-footer">
-                    <a href="#" class="nav-item nav-item--secondary">
-                        <span class="nav-icon" aria-hidden="true">⋯</span>
-                        <span class="nav-text">Más</span>
-                    </a>
+                    <form method="POST" action="{% url 'logout' %}" class="sidebar-logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="nav-item nav-logout">
+                            <span class="nav-icon" aria-hidden="true">🚪</span>
+                            <span class="nav-text">Cerrar sesión</span>
+                        </button>
+                    </form>
                 </div>
+
             </nav>
         {% endif %}
 
@@ -80,8 +86,6 @@
             {% block content %}
             {% endblock %}
         </main>
-
-        {# MANTÉN ESTE BLOQUE VACÍO para que las otras plantillas lo llenen #}
         {% block extra_scripts %}
         {% endblock %}
     </body>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catagram - Login</title>
+    <link rel="icon" type="image/png" href="{% static 'images/Catagram C - logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -44,9 +45,9 @@
 
                 <div class="login-info">
                     <div class="login-divider"><span></span><span class="login-o">O</span><span></span></div>
-                    <a href="{% url 'accounts:register' %}" class="login-catnip">Crear una cuenta de Catagrom</a>
+                    <a href="{% url 'register' %}" class="login-catnip">Crear una cuenta de Catagrom</a>
                     <p><a href="#" class="login-forgot">¿Haz olvidado tu contraseña?</a></p>
-                    <p>¿No tienes una zona? <a href="{% url 'accounts:register' %}">Márcala</a></p>
+                    <p>¿No tienes una zona? <a href="{% url 'register' %}">Márcala</a></p>
                 </div>
             </div>
         </div>

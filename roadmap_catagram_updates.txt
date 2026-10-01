@@ -18,3 +18,11 @@ Se añadieron estilos para las tarjetas de feed y stories, con estructura ordena
 Se corrigió el problema de las imágenes del feed saliendo del cuadro, dejando el contenedor de la publicación con altura y ajuste correcto mediante object-fit: cover.
 Se dejó el feed preparado para seguir ampliando con publicaciones reales, avatar, comentarios y contenido dinámico desde Django.
 Se validó el proyecto con python manage.py check y el estado del proyecto sigue correcto tras los cambios.
+
+01/10/2026
+Se agregó el icono de página (favicon) usando una imagen local dentro de static/images.
+Se mejoró el sidebar para que se expanda al pasar el mouse por encima y muestre el texto de las opciones. Al expandirse, el icono compacto se reemplaza por el logo Catagram de media que es más largo.
+Se agregó al sidebar un botón para cerrar sesión, ubicado en la parte inferior.
+Se ajustaron las rutas para que el feed protegido se muestre en la URL raíz (/) y se corrigieron los redireccionamientos del antiguo home, login y registro para enviar a los usuarios autenticados al nuevo feed.
+Se añadieron pruebas/tests para comprobar el acceso al feed, la redirección al login cuando no hay sesión y el comportamiento de un usuario autenticado que visita login.
+Se verificaron los cambios con las pruebas de autenticación y el comando python manage.py check otra vez.
